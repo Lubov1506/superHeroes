@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  SuperPowers.init({
+  SuperPower.init({
     superPower: {
       field: 'super_power',
       allowNull: false,

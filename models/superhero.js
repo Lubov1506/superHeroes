@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  SuperHeroes.init({
+  SuperHero.init({
     nickName: {
       field: 'nick_name',
       allowNull: false,
