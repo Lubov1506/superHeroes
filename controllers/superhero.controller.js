@@ -25,7 +25,7 @@ module.exports.getAllSuperHeroes = async(req,res,next) => {
     try{
         //const { pagination = {} } = req;
         const arraySuperHeroes = await SuperHero.findAll(
-            // { ... paginatin }
+                        //{ ... pagination }
         );
         res.status(200).send({data: arraySuperHeroes})
     }catch(err){
@@ -56,12 +56,12 @@ module.exports.deleteSuperHero = async(req,res,next) => {
         params: {id}
     }=req;
     try{
-        const deletedSuperHeroes = await SuperHero.destroy({
+        const deletedSuperHero = await SuperHero.destroy({
             where:{
                 id:id
             }
         });
-        res.status(200).send({data: deletedSuperHeroes})
+        res.status(200).send({data: deletedSuperHero})
     }catch(err){
         next(err)
     }

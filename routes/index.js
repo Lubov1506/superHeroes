@@ -5,6 +5,6 @@ const powerRouter = require('./superpowers');
 const router = Router();
 
 router.use('/superheroes', heroRouter);
-//router.use('/superpowers', powerRouter);
+router.use('/superpowers', powerRouter);
 
 module.exports = router;
