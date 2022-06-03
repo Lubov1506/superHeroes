@@ -9,4 +9,14 @@ module.exports.createSuperHero = async (req,res,next)=>{
     }catch(err){
         next(err)
     }
+};
+
+module.exports.getSuperHero = async(req,res,next) => {
+    const {params: {id}}= req;
+    try{
+        const returnedSuperHero = await SuperHero.findByPk(id);
+        res.status(200).send({data: returnedSuperHero})
+    }catch(err){
+        next(err)
+    }
 }
