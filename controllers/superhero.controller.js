@@ -25,7 +25,7 @@ module.exports.getAllSuperHeroes = async(req,res,next) => {
     try{
         const { pagination = {} } = req;
         const arraySuperHeroes = await SuperHero.findAll(
-                        { ... pagination }
+             { ... pagination }
         );
         res.status(200).send({data: arraySuperHeroes})
     }catch(err){

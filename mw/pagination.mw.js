@@ -7,6 +7,7 @@ module.exports = async (req, res, next) => {
         limit: limit > 5 || limit <= 0 ? 5 : limit,
         offset: offset <= 0 ? 0 : offset
       };
+      next();
     } catch (err) {
       next(err);
     }
