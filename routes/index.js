@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const heroRouter = require('./superheroes');
-const powerRouter = require('./superpowers');
+const heroRouter = require('./heroRouter');
+const powerRouter = require('./powerRouter');
 
 const router = Router();
 

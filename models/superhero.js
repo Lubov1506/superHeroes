@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
       field: 'catch_phrase',
       allowNull: false,
       type: DataTypes.STRING
-    }
+    }    
   }, {
     sequelize,
     modelName: 'SuperHero',

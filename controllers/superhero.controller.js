@@ -1,4 +1,4 @@
-const {SuperHero} = require('../models');
+const {SuperHero, SuperPower} = require('../models');
 // cconst createError = require('http-errors');
 
 module.exports.createSuperHero = async (req,res,next)=>{
@@ -66,3 +66,31 @@ module.exports.deleteSuperHero = async(req,res,next) => {
         next(err)
     }
 };
+module.exports.addPowerToHero = async (req, res, next) => {
+    try {
+      const {
+        body: {  superPowerId },
+        params: {superHeroId  }
+      } = req;
+      const powerInstance = await SuperPower.findByPk(superPowerId);
+      const heroInstance = await SuperHero.findByPk(superHeroId);
+   
+      heroInstance.addSuperPower(powerInstance);
+  
+      const heroWithPowers = await SuperHero.findAll({
+        where: {
+          id: superHeroId
+        },
+        include: [
+          {
+            model: SuperPower,
+            through: {
+              attributes: []
+            }
+          }
+        ]
+      });
+    } catch (err) {
+      next(err);
+    }
+  };

@@ -9,5 +9,6 @@ heroRouter.get('/:id', superHeroesController.getSuperHero);
 heroRouter.get('/', pagination, superHeroesController.getAllSuperHeroes);
 heroRouter.put('/:id', superHeroesController.updateSuperHero);
 heroRouter.delete('/:id', superHeroesController.deleteSuperHero);
+heroRouter.post('/:superHeroId', superHeroesController.addPowerToHero)
 
 module.exports = heroRouter;

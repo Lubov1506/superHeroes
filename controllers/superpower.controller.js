@@ -1,4 +1,4 @@
-const {SuperPower} = require('../models');
+const {SuperPower, SuperHero} = require('../models');
 
 module.exports.createSuperPower = async(req,res,next)=>{
 
@@ -38,6 +38,24 @@ module.exports.deleteSuperPower = async(req,res,next) => {
             }
         });
         res.status(200).send({data: deletedSuperPower})
+    }catch(err){
+        next(err)
+    }
+};
+
+module.exports.getHeroSuperPowers = async(req,res,next) => {
+    
+    try{
+        const {
+        params: {superHeroId}
+    }=req;
+        const heroSuperPowers = await SuperPower.findByPk(body.superHeroId, {
+            include: [SuperPower]
+        });
+        if (!heroSuperPowers){
+            throw new Error ('Empty SuperHero')
+        }
+        res.status(200).send({data: heroSuperPowers})
     }catch(err){
         next(err)
     }
